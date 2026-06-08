@@ -506,7 +506,8 @@
     if(sl){sl.value=vol;sl.style.setProperty('--p',vol+'%');}
     var want;try{want=localStorage.getItem('woa_sound');}catch(e){}
     want=(want!=='off');                 // domyslnie WLACZONY, chyba ze user wyciszyl
-    var ducked=false;                    // czy muzyka jest wstrzymana przez video
+    var ducked=false;                    // muzyka wstrzymana przez video
+    var EV=['pointerdown','touchend','click','keydown'];
     function paint(){
       btn.classList.toggle('muted',!want);
       if(ctl)ctl.classList.toggle('muted',!want);
@@ -515,24 +516,32 @@
     }
     function tryPlay(){var p=a.play();if(p&&p.catch)p.catch(function(){});}
     function save(){try{localStorage.setItem('woa_sound',want?'on':'off');}catch(e){}}
-    a.addEventListener('play',paint);a.addEventListener('pause',paint);
-    btn.addEventListener('click',function(){want=!want;ducked=false;if(want)tryPlay();else a.pause();save();paint();});
+    function removeUnlock(){EV.forEach(function(ev){document.removeEventListener(ev,unlock,true);});}
+    function unlock(e){
+      if(e&&e.target&&e.target.closest&&e.target.closest('#sound-ctl'))return; // przycisk/suwak obsluguja sie same
+      if(want&&a.paused&&!ducked)tryPlay();
+    }
+    a.addEventListener('play',function(){removeUnlock();paint();});
+    a.addEventListener('pause',paint);
+    // przycisk: gra -> pauza, cisza -> graj (oparte na realnym stanie, nie na przelaczniku)
+    btn.addEventListener('click',function(){
+      if(a.paused){want=true;tryPlay();}else{want=false;a.pause();}
+      ducked=false;save();paint();
+    });
     if(sl){sl.addEventListener('input',function(){
       var v=parseInt(sl.value,10)||0;a.volume=v/100;sl.style.setProperty('--p',v+'%');
       try{localStorage.setItem('woa_vol',String(v));}catch(e){}
     });}
-    function detach(){['pointerdown','touchstart','keydown','scroll'].forEach(function(ev){removeEventListener(ev,kick,true);});}
-    function kick(){if(want&&a.paused&&!ducked)tryPlay();paint();if((!a.paused||!want)&&!ducked)detach();}
+    // autoplay jest blokowany -> startuj przy 1. interakcji gdziekolwiek na stronie
+    EV.forEach(function(ev){document.addEventListener(ev,unlock,true);});
     if(want)tryPlay();
     paint();
-    ['pointerdown','touchstart','keydown','scroll'].forEach(function(ev){addEventListener(ev,kick,{capture:true,passive:true});});
-
     // --- nie nakladaj muzyki na zwiastun ---
-    function duck(){ if(!a.paused){a.pause();ducked=true;paint();} }
-    function unduck(){ if(ducked){ducked=false;if(want)tryPlay();paint();} }
+    function duck(){if(!a.paused){a.pause();ducked=true;paint();}}
+    function unduck(){if(ducked){ducked=false;if(want)tryPlay();paint();}}
     function bindVimeo(){
       if(!window.Vimeo)return false;
-      var f=document.getElementById('vimeo-trailer'); if(!f)return false;
+      var f=document.getElementById('vimeo-trailer');if(!f)return false;
       try{var pl=new Vimeo.Player(f);pl.on('play',duck);pl.on('pause',unduck);pl.on('ended',unduck);}
       catch(e){return false;}
       return true;
