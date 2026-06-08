@@ -1,0 +1,34 @@
+{
+  "events": [
+    {
+      "tag": "LIVE",
+      "date": "2026-06-10",
+      "title": "Season 1 Arena is open",
+      "body": "The first PvP season has begun. Climb the ladder, win duels and claim your share of the prize pool.",
+      "title_pl": "Sezon 1 Areny wystartował",
+      "body_pl": "Ruszył pierwszy sezon PvP. Wespnij się w rankingu, wygrywaj pojedynki i zgarnij część puli nagród."
+    },
+    {
+      "tag": "SOON",
+      "date": "2026-06-20",
+      "title": "First Boss Raid: Capybara Warlord",
+      "body": "Team up with the horde to take down the first raid boss. EGGPLANT rewards for every participant.",
+      "title_pl": "Pierwszy Boss Raid: Capybara Warlord",
+      "body_pl": "Połącz siły z hordą, by pokonać pierwszego raidowego bossa. Nagrody w EGGPLANT dla każdego uczestnika."
+    }
+  ],
+  "bosses": [
+    {
+      "img": "boss-capybara.webp",
+      "name": "Capybara Warlord",
+      "desc": "Armored raid boss · brutal melee · drops Legendary loot",
+      "desc_pl": "Opancerzony boss raidowy · brutalna walka wręcz · gubi legendarny loot"
+    },
+    {
+      "img": "boss-pepe.webp",
+      "name": "Pepe the Warbringer",
+      "desc": "Amphibian raid boss · dual blades · summons frog minions",
+      "desc_pl": "Płaziowy boss raidowy · dwa ostrza · przyzywa żabie minionki"
+    }
+  ]
+}
