@@ -29,6 +29,11 @@
       "name": "Pepe the Warbringer",
       "desc": "Amphibian raid boss · dual blades · summons frog minions",
       "desc_pl": "Płaziowy boss raidowy · dwa ostrza · przyzywa żabie minionki"
+    },
+    {
+      "img": "boss-test.webp",
+      "name": "test",
+      "desc": "test 2"
     }
   ]
 }
