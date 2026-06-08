@@ -221,7 +221,8 @@
   .flag.active{opacity:1;filter:none;transform:translateY(-1px)}
   @media(max-width:560px){.langsw{gap:4px}.flag{width:22px;height:26px}}@media(max-width:430px){.nav-cta{display:none}.langsw{gap:3px}.flag{width:20px;height:24px}}
 .video-wrap{position:relative;max-width:760px;margin:42px auto 0;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1px solid var(--linep);box-shadow:0 30px 60px -25px rgba(199,125,255,.4);background:#0a0610}.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.sound-btn{position:fixed;right:18px;bottom:18px;z-index:80;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;cursor:pointer;border:1px solid var(--line);color:var(--gold2);background:linear-gradient(180deg,var(--panel2),var(--ink2));box-shadow:0 10px 30px -12px rgba(0,0,0,.7),0 0 18px -8px rgba(232,184,75,.5);transition:transform .2s,box-shadow .2s,border-color .2s,color .2s}.sound-btn:hover{transform:translateY(-2px);border-color:rgba(232,184,75,.45);box-shadow:0 14px 34px -12px rgba(0,0,0,.8),0 0 26px -6px rgba(232,184,75,.7)}.sound-btn svg{width:22px;height:22px;display:block}.sound-btn .ic-off{display:none}.sound-btn.muted{color:var(--faint)}.sound-btn.muted .ic-on{display:none}.sound-btn.muted .ic-off{display:block}.sound-btn.playing::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:1px solid rgba(232,184,75,.35);animation:sndPulse 2.4s ease-out infinite;pointer-events:none}@keyframes sndPulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.35);opacity:0}}@media(max-width:560px){.sound-btn{width:44px;height:44px;right:14px;bottom:14px}}
+.sound-btn{position:relative;flex:0 0 auto;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;cursor:pointer;border:1px solid var(--line);color:var(--gold2);background:linear-gradient(180deg,var(--panel2),var(--ink2));box-shadow:0 10px 30px -12px rgba(0,0,0,.7),0 0 18px -8px rgba(232,184,75,.5);transition:transform .2s,box-shadow .2s,border-color .2s,color .2s}.sound-btn:hover{transform:translateY(-2px);border-color:rgba(232,184,75,.45);box-shadow:0 14px 34px -12px rgba(0,0,0,.8),0 0 26px -6px rgba(232,184,75,.7)}.sound-btn svg{width:22px;height:22px;display:block}.sound-btn .ic-off{display:none}.sound-btn.muted{color:var(--faint)}.sound-btn.muted .ic-on{display:none}.sound-btn.muted .ic-off{display:block}.sound-btn.playing::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:1px solid rgba(232,184,75,.35);animation:sndPulse 2.4s ease-out infinite;pointer-events:none}@keyframes sndPulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.35);opacity:0}}@media(max-width:560px){.sound-ctl{right:14px;bottom:14px;gap:8px;padding:5px 5px 5px 11px}.sound-btn{width:44px;height:44px}.sound-slider{width:72px}}
+.sound-ctl{position:fixed;right:18px;bottom:18px;z-index:80;display:flex;align-items:center;gap:11px;padding:6px 6px 6px 13px;border-radius:999px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(28,16,41,.9),rgba(21,12,30,.9));backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 12px 32px -16px rgba(0,0,0,.8)}.sound-slider{-webkit-appearance:none;appearance:none;width:92px;height:6px;border-radius:999px;cursor:pointer;background:linear-gradient(90deg,var(--gold) var(--p,25%),#3a2a44 var(--p,25%));outline:none;transition:opacity .2s,filter .2s}.sound-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:15px;height:15px;border-radius:50%;background:linear-gradient(180deg,var(--gold2),var(--gold));border:1px solid #8a6a1e;box-shadow:0 2px 6px rgba(0,0,0,.5);cursor:pointer}.sound-slider::-moz-range-thumb{width:15px;height:15px;border-radius:50%;background:linear-gradient(180deg,var(--gold2),var(--gold));border:1px solid #8a6a1e;cursor:pointer}.sound-ctl.muted .sound-slider{opacity:.4;filter:saturate(.35)}
 </style>
 </head>
 <body>
@@ -276,7 +277,7 @@
   <h2 class="h2 rv" data-en="See <span class=&quot;gold&quot;>Analtena</span> in motion">Zobacz <span class="gold">Analtenę</span> w akcji</h2>
   <p class="sub rv" data-en="A first look at the arena, the horde and the fights.">Pierwszy rzut oka na arenę, hordę i walki.</p>
   <div class="video-wrap rv">
-    <iframe src="https://player.vimeo.com/video/1199391946?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" title="World of Analtena — trailer" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    <iframe id="vimeo-trailer" src="https://player.vimeo.com/video/1199391946?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" title="World of Analtena — trailer" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
   </div>
 </div></section>
 
@@ -487,32 +488,56 @@
   })();
 </script>
 <audio id="bgm" src="Main.mp3" loop preload="auto"></audio>
-<button id="sound-toggle" class="sound-btn" aria-label="Music on/off" title="Music on/off" aria-pressed="true">
+<div class="sound-ctl" id="sound-ctl">
+  <input id="sound-vol" class="sound-slider" type="range" min="0" max="100" value="25" aria-label="Volume" title="Volume">
+  <button id="sound-toggle" class="sound-btn" aria-label="Music on/off" title="Music on/off" aria-pressed="true">
   <svg class="ic-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8.5a4 4 0 010 7"/><path d="M18.7 6a7 7 0 010 12"/></svg>
   <svg class="ic-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M22 9l-6 6"/><path d="M16 9l6 6"/></svg>
 </button>
+</div>
+<script src="https://player.vimeo.com/api/player.js"></script>
 <script>
   (function(){
-    var a=document.getElementById('bgm'),btn=document.getElementById('sound-toggle');
+    var a=document.getElementById('bgm'),btn=document.getElementById('sound-toggle'),
+        ctl=document.getElementById('sound-ctl'),sl=document.getElementById('sound-vol');
     if(!a||!btn)return;
-    a.volume=0.30;
+    var vol=25;try{var sv=localStorage.getItem('woa_vol');if(sv!==null)vol=Math.max(0,Math.min(100,parseInt(sv,10)||0));}catch(e){}
+    a.volume=vol/100;
+    if(sl){sl.value=vol;sl.style.setProperty('--p',vol+'%');}
     var want;try{want=localStorage.getItem('woa_sound');}catch(e){}
     want=(want!=='off');                 // domyslnie WLACZONY, chyba ze user wyciszyl
+    var ducked=false;                    // czy muzyka jest wstrzymana przez video
     function paint(){
       btn.classList.toggle('muted',!want);
+      if(ctl)ctl.classList.toggle('muted',!want);
       btn.classList.toggle('playing',want&&!a.paused);
       btn.setAttribute('aria-pressed',String(want));
     }
     function tryPlay(){var p=a.play();if(p&&p.catch)p.catch(function(){});}
     function save(){try{localStorage.setItem('woa_sound',want?'on':'off');}catch(e){}}
     a.addEventListener('play',paint);a.addEventListener('pause',paint);
-    btn.addEventListener('click',function(){want=!want;if(want)tryPlay();else a.pause();save();paint();});
-    // start od razu; jesli przegladarka blokuje autoplay -> startuj przy 1. interakcji
+    btn.addEventListener('click',function(){want=!want;ducked=false;if(want)tryPlay();else a.pause();save();paint();});
+    if(sl){sl.addEventListener('input',function(){
+      var v=parseInt(sl.value,10)||0;a.volume=v/100;sl.style.setProperty('--p',v+'%');
+      try{localStorage.setItem('woa_vol',String(v));}catch(e){}
+    });}
     function detach(){['pointerdown','touchstart','keydown','scroll'].forEach(function(ev){removeEventListener(ev,kick,true);});}
-    function kick(){if(want&&a.paused)tryPlay();paint();if(!a.paused||!want)detach();}
+    function kick(){if(want&&a.paused&&!ducked)tryPlay();paint();if((!a.paused||!want)&&!ducked)detach();}
     if(want)tryPlay();
     paint();
     ['pointerdown','touchstart','keydown','scroll'].forEach(function(ev){addEventListener(ev,kick,{capture:true,passive:true});});
+
+    // --- nie nakladaj muzyki na zwiastun ---
+    function duck(){ if(!a.paused){a.pause();ducked=true;paint();} }
+    function unduck(){ if(ducked){ducked=false;if(want)tryPlay();paint();} }
+    function bindVimeo(){
+      if(!window.Vimeo)return false;
+      var f=document.getElementById('vimeo-trailer'); if(!f)return false;
+      try{var pl=new Vimeo.Player(f);pl.on('play',duck);pl.on('pause',unduck);pl.on('ended',unduck);}
+      catch(e){return false;}
+      return true;
+    }
+    if(!bindVimeo()){var n=0,iv=setInterval(function(){n++;if(bindVimeo()||n>40)clearInterval(iv);},150);}
   })();
 </script>
 </body>
