@@ -675,5 +675,8 @@
 <script>
 (function(){var v=document.querySelector(".bg-vid");if(!v)return;if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches){try{v.pause();v.removeAttribute("autoplay");}catch(e){}return;}function pl(){var p=v.play();if(p&&p.catch)p.catch(function(){});}document.addEventListener("visibilitychange",function(){if(document.hidden)v.pause();else pl();});pl();})();
 </script>
+<script>
+(function(){if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)return;var bars=[].slice.call(document.querySelectorAll(".bar > i"));if(!bars.length)return;bars.forEach(function(el){var w=parseFloat(el.style.width);if(!w)w=parseFloat(getComputedStyle(el).width)||60;el.dataset.base=w;});var timer=null,vis=new Set();function tick(){bars.forEach(function(el){var b=parseFloat(el.dataset.base)||60;var d=(Math.random()*12)-8;var w=Math.max(8,Math.min(100,b+d));el.style.width=w.toFixed(1)+"%";});}function start(){if(timer)return;timer=setInterval(tick,1600);tick();}function stop(){if(timer){clearInterval(timer);timer=null;}}if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)vis.add(e.target);else vis.delete(e.target);});if(vis.size>0)start();else stop();},{threshold:0});bars.forEach(function(el){io.observe(el.parentNode);});}else{start();}})();
+</script>
 </body>
 </html>
