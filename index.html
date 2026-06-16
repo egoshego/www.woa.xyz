@@ -232,6 +232,16 @@ html{overflow-x:hidden}img{max-width:100%}.hero-in{min-width:0}@media(max-width:
 @media(max-width:560px){nav{background:rgba(10,6,14,.97);border-bottom:1px solid rgba(232,184,75,.16);padding-top:env(safe-area-inset-top,0px)}nav.scrolled{background:rgba(10,6,14,.985);border-bottom-color:rgba(232,184,75,.2)}.navin{height:54px}}
 .nav-arena{display:none}@media(max-width:560px){.nav-arena{display:inline-flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;padding:8px 11px;border-radius:8px;background:linear-gradient(180deg,var(--gold2),var(--gold));color:#3a2400;white-space:nowrap;text-decoration:none;flex:0 0 auto}.navright{gap:9px}}
 </style>
+<style>
+.cta-dd{position:relative;display:inline-block}
+.cta-dd-m{display:none}
+.cta-dd .nav-cta,.cta-dd .nav-arena{border:0;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+.cta-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:152px;display:none;flex-direction:column;gap:2px;padding:6px;background:rgba(20,12,30,.98);border:1px solid var(--line);border-radius:12px;box-shadow:0 18px 40px -16px rgba(0,0,0,.7);z-index:60}
+.cta-dd:hover>.cta-menu,.cta-dd.open>.cta-menu{display:flex}
+.cta-menu a{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:8px;color:var(--cream);font-size:13px;font-family:'Space Mono',monospace;text-decoration:none;white-space:nowrap}
+.cta-menu a:hover{background:rgba(232,184,75,.14);color:var(--gold2)}
+@media(max-width:860px){.cta-dd{display:none}.cta-dd-m{display:inline-block}}
+</style>
 </head>
 <body>
 <video class="bg-vid" autoplay muted loop playsinline preload="auto" poster="arena-loop-1.webp" src="arena-loop-1.mp4"></video>
@@ -252,7 +262,7 @@ html{overflow-x:hidden}img{max-width:100%}.hero-in{min-width:0}@media(max-width:
     <a href="#whitepaper" data-en="White Paper">White Paper</a>
     <a href="#spolecznosc" data-en="Community">Społeczność</a>
   </div>
-  <div class="navright"><a class="nav-arena" href="https://t.me/AnaltenaRPGBot" target="_blank" rel="noopener" data-en="⚔ Arena">⚔ Arena</a><div class="langsw"><button class="flag" data-lang="en" title="English" aria-label="English"><svg viewBox="0 0 40 48"><defs><clipPath id="shpEN"><path d="M5 4 H35 V25 C35 37 20 45 20 45 C20 45 5 37 5 25 Z"/></clipPath></defs><g clip-path="url(#shpEN)"><rect width="40" height="48" fill="#012169"/><path d="M0 0 L40 48 M40 0 L0 48" stroke="#fff" stroke-width="9"/><path d="M0 0 L40 48 M40 0 L0 48" stroke="#C8102E" stroke-width="4"/><path d="M20 0 V48 M0 24 H40" stroke="#fff" stroke-width="10"/><path d="M20 0 V48 M0 24 H40" stroke="#C8102E" stroke-width="6"/></g><path d="M5 4 H35 V25 C35 37 20 45 20 45 C20 45 5 37 5 25 Z" fill="none" stroke="#e8b84b" stroke-width="3"/></svg></button><button class="flag" data-lang="pl" title="Polski" aria-label="Polski"><svg viewBox="0 0 40 48"><defs><clipPath id="shpPL"><path d="M5 4 H35 V25 C35 37 20 45 20 45 C20 45 5 37 5 25 Z"/></clipPath></defs><g clip-path="url(#shpPL)"><rect width="40" height="25" fill="#fff"/><rect y="25" width="40" height="23" fill="#d4213d"/></g><path d="M5 4 H35 V25 C35 37 20 45 20 45 C20 45 5 37 5 25 Z" fill="none" stroke="#e8b84b" stroke-width="3"/></svg></button><button class="flag" data-lang="es" title="Español" aria-label="Español"><svg viewBox="0 0 40 48"><defs><clipPath id="shpES"><path d="M5 4 H35 V25 C35 37 20 45 20 45 C20 45 5 37 5 25 Z"/></clipPath></defs><g clip-path="url(#shpES)"><rect width="40" height="48" fill="#c60b1e"/><rect y="15" width="40" height="18" fill="#ffc400"/></g><path d="M5 4 H35 V25 C35 37 20 45 20 45 C20 45 5 37 5 25 Z" fill="none" stroke="#e8b84b" stroke-width="3"/></svg></button><button class="flag" data-lang="zh" title="中文" aria-label="中文"><svg viewBox="0 0 40 48"><defs><clipPath id="shpZH"><path d="M5 4 H35 V25 C35 37 20 45 20 45 C20 45 5 37 5 25 Z"/></clipPath></defs><g clip-path="url(#shpZH)"><rect width="40" height="48" fill="#de2910"/><text x="11" y="20" font-size="12" fill="#ffde00" text-anchor="middle" font-family="Arial">★</text><text x="20" y="10" font-size="4.5" fill="#ffde00" text-anchor="middle" font-family="Arial">★</text><text x="23" y="15" font-size="4.5" fill="#ffde00" text-anchor="middle" font-family="Arial">★</text><text x="23" y="21" font-size="4.5" fill="#ffde00" text-anchor="middle" font-family="Arial">★</text><text x="20" y="26" font-size="4.5" fill="#ffde00" text-anchor="middle" font-family="Arial">★</text></g><path d="M5 4 H35 V25 C35 37 20 45 20 45 C20 45 5 37 5 25 Z" fill="none" stroke="#e8b84b" stroke-width="3"/></svg></button></div><a class="nav-cta" href="https://t.me/AnaltenaRPGBot" target="_blank" rel="noopener" data-en="Enter the Arena">Wejdź do Areny</a></div>
+  <div class="navright"><div class="cta-dd cta-dd-m"><button class="nav-arena" type="button" aria-haspopup="true" aria-expanded="false"><span data-en="⚔ Arena">⚔ Arena</span> ▾</button><div class="cta-menu" role="menu"><a href="https://t.me/WORLDofANALTENA_BOT" target="_blank" rel="noopener" role="menuitem">⚔ Telegram</a><a href="https://analtena.online/" target="_blank" rel="noopener" role="menuitem">🌐 Online</a></div></div><div class="langsw"><button class="flag" data-lang="en" title="English" aria-label="English"><svg viewBox="0 0 40 48"><defs><clipPath id="shpEN"><path d="M5 4 H35 V25 C35 37 20 45 20 45 C20 45 5 37 5 25 Z"/></clipPath></defs><g clip-path="url(#shpEN)"><rect width="40" height="48" fill="#012169"/><path d="M0 0 L40 48 M40 0 L0 48" stroke="#fff" stroke-width="9"/><path d="M0 0 L40 48 M40 0 L0 48" stroke="#C8102E" stroke-width="4"/><path d="M20 0 V48 M0 24 H40" stroke="#fff" stroke-width="10"/><path d="M20 0 V48 M0 24 H40" stroke="#C8102E" stroke-width="6"/></g><path d="M5 4 H35 V25 C35 37 20 45 20 45 C20 45 5 37 5 25 Z" fill="none" stroke="#e8b84b" stroke-width="3"/></svg></button><button class="flag" data-lang="pl" title="Polski" aria-label="Polski"><svg viewBox="0 0 40 48"><defs><clipPath id="shpPL"><path d="M5 4 H35 V25 C35 37 20 45 20 45 C20 45 5 37 5 25 Z"/></clipPath></defs><g clip-path="url(#shpPL)"><rect width="40" height="25" fill="#fff"/><rect y="25" width="40" height="23" fill="#d4213d"/></g><path d="M5 4 H35 V25 C35 37 20 45 20 45 C20 45 5 37 5 25 Z" fill="none" stroke="#e8b84b" stroke-width="3"/></svg></button><button class="flag" data-lang="es" title="Español" aria-label="Español"><svg viewBox="0 0 40 48"><defs><clipPath id="shpES"><path d="M5 4 H35 V25 C35 37 20 45 20 45 C20 45 5 37 5 25 Z"/></clipPath></defs><g clip-path="url(#shpES)"><rect width="40" height="48" fill="#c60b1e"/><rect y="15" width="40" height="18" fill="#ffc400"/></g><path d="M5 4 H35 V25 C35 37 20 45 20 45 C20 45 5 37 5 25 Z" fill="none" stroke="#e8b84b" stroke-width="3"/></svg></button><button class="flag" data-lang="zh" title="中文" aria-label="中文"><svg viewBox="0 0 40 48"><defs><clipPath id="shpZH"><path d="M5 4 H35 V25 C35 37 20 45 20 45 C20 45 5 37 5 25 Z"/></clipPath></defs><g clip-path="url(#shpZH)"><rect width="40" height="48" fill="#de2910"/><text x="11" y="20" font-size="12" fill="#ffde00" text-anchor="middle" font-family="Arial">★</text><text x="20" y="10" font-size="4.5" fill="#ffde00" text-anchor="middle" font-family="Arial">★</text><text x="23" y="15" font-size="4.5" fill="#ffde00" text-anchor="middle" font-family="Arial">★</text><text x="23" y="21" font-size="4.5" fill="#ffde00" text-anchor="middle" font-family="Arial">★</text><text x="20" y="26" font-size="4.5" fill="#ffde00" text-anchor="middle" font-family="Arial">★</text></g><path d="M5 4 H35 V25 C35 37 20 45 20 45 C20 45 5 37 5 25 Z" fill="none" stroke="#e8b84b" stroke-width="3"/></svg></button></div><div class="cta-dd"><button class="nav-cta" type="button" aria-haspopup="true" aria-expanded="false"><span data-en="Enter the Arena">Wejdź do Areny</span> ▾</button><div class="cta-menu" role="menu"><a href="https://t.me/WORLDofANALTENA_BOT" target="_blank" rel="noopener" role="menuitem">⚔ Telegram</a><a href="https://analtena.online/" target="_blank" rel="noopener" role="menuitem">🌐 Online</a></div></div></div>
 </div></nav>
 
 <!-- HERO -->
@@ -264,8 +274,9 @@ html{overflow-x:hidden}img{max-width:100%}.hero-in{min-width:0}@media(max-width:
     <img class="hero-logo" src="logo.webp" alt="World of Analtena">
     <p class="lead rv" data-en="A gladiator RPG where <b>warriors</b> fight for glory. Enter the arena, bet on duels and collect legendary NFT weapons.">Gladiatorska RPG, w której <b>wojownicy</b> walczą o chwałę. Wejdź na arenę, obstawiaj pojedynki i kolekcjonuj legendarny oręż NFT.</p>
     <div class="cta-row rv">
-      <a class="btn btn-gold" href="https://t.me/AnaltenaRPGBot" target="_blank" rel="noopener" data-en="⚔ Enter the Arena">⚔ Wejdź do Areny</a>
-      <a class="btn btn-raid" href="https://t.me/AnaltenaRPGBot" target="_blank" rel="noopener" data-en="☠ Boss Raid">☠ Boss Raid</a>
+      <a class="btn btn-gold" href="https://t.me/WORLDofANALTENA_BOT" target="_blank" rel="noopener" data-en="⚔ Arena — Telegram">⚔ Arena — Telegram</a>
+      <a class="btn btn-gold" href="https://analtena.online/" target="_blank" rel="noopener" data-en="🌐 Arena — Online">🌐 Arena — Online</a>
+      <a class="btn btn-raid" href="https://t.me/WORLDofANALTENA_BOT" target="_blank" rel="noopener" data-en="☠ Boss Raid">☠ Boss Raid</a>
       <a class="btn btn-ghost" href="https://app.xdex.xyz/alpha/token?token=GwwCyLS4VEeZXyPWPYRNiVSuVur6ntioxBmjDQHHHv9x&chain=x1" target="_blank" rel="noopener" data-en="Buy ANALTENA">Kup ANALTENA</a>
     </div>
   </div>
@@ -426,7 +437,6 @@ html{overflow-x:hidden}img{max-width:100%}.hero-in{min-width:0}@media(max-width:
   <div class="rv" style="margin-top:16px;color:var(--muted);font-size:13px">
     <span data-en="Other languages:">Inne języki:</span>
     <a href="WP_WoA_EN.html" target="_blank" rel="noopener" style="color:var(--gold2)">EN</a> ·
-    <a href="WP_WoA_PL.html" target="_blank" rel="noopener" style="color:var(--gold2)">PL</a> ·
     <a href="WP_WoA_ZH.html" target="_blank" rel="noopener" style="color:var(--gold2)">中文</a>
   </div>
 </div></section>
@@ -439,8 +449,9 @@ html{overflow-x:hidden}img{max-width:100%}.hero-in{min-width:0}@media(max-width:
     <h2 class="rv" data-en="Enter the arena">Wejdź na arenę</h2>
     <p class="lead rv" style="margin:18px auto 30px;max-width:46ch;color:var(--cream)" data-en="Warriors are already sharpening their axes. Be one of the first gladiators of World of Analtena.">Wojownicy już ostrzą topory. Bądź jednym z pierwszych gladiatorów World of Analtena.</p>
     <div class="cta-row rv">
-      <a class="btn btn-gold" href="https://t.me/AnaltenaRPGBot" target="_blank" rel="noopener" data-en="⚔ Enter the Arena">⚔ Wejdź do Areny</a>
-      <a class="btn btn-raid" href="https://t.me/AnaltenaRPGBot" target="_blank" rel="noopener" data-en="☠ Boss Raid">☠ Boss Raid</a>
+      <a class="btn btn-gold" href="https://t.me/WORLDofANALTENA_BOT" target="_blank" rel="noopener" data-en="⚔ Arena — Telegram">⚔ Arena — Telegram</a>
+      <a class="btn btn-gold" href="https://analtena.online/" target="_blank" rel="noopener" data-en="🌐 Arena — Online">🌐 Arena — Online</a>
+      <a class="btn btn-raid" href="https://t.me/WORLDofANALTENA_BOT" target="_blank" rel="noopener" data-en="☠ Boss Raid">☠ Boss Raid</a>
       <a class="btn btn-ghost" href="https://analtena.com" target="_blank" rel="noopener">🌐 analtena.com</a>
       <a class="btn btn-ghost" href="https://t.me/analtena" target="_blank" rel="noopener">Telegram</a>
       <a class="btn btn-ghost" href="https://x.com/Analtena" target="_blank" rel="noopener">X / Twitter</a>
@@ -700,7 +711,7 @@ html{overflow-x:hidden}img{max-width:100%}.hero-in{min-width:0}@media(max-width:
 </script>
 <script>
 (function(){
-  var MAP={en:'EN',pl:'PL',zh:'ZH',es:'EN'};
+  var MAP={en:'EN',pl:'EN',zh:'ZH',es:'EN'};
   function cur(){return (window.__lang&&window.__lang())||'en';}
   function upd(){var c=MAP[cur()]||'EN';
     var r=document.getElementById('wp-read'),p=document.getElementById('wp-pdf');
@@ -731,6 +742,19 @@ html{overflow-x:hidden}img{max-width:100%}.hero-in{min-width:0}@media(max-width:
     if(history.replaceState)history.replaceState(null,'',location.pathname+location.search);
     if(document.getElementById(id0))setTimeout(function(){go(id0,false);},60);
   }
+})();
+</script>
+<script>
+(function(){
+  function close(dd){dd.classList.remove('open');var b=dd.querySelector('button');if(b)b.setAttribute('aria-expanded','false');}
+  document.querySelectorAll('.cta-dd').forEach(function(dd){
+    var b=dd.querySelector('button');if(!b)return;
+    b.addEventListener('click',function(e){e.preventDefault();var op=dd.classList.toggle('open');b.setAttribute('aria-expanded',op?'true':'false');});
+  });
+  document.addEventListener('click',function(e){
+    document.querySelectorAll('.cta-dd.open').forEach(function(dd){if(!dd.contains(e.target))close(dd);});
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.cta-dd.open').forEach(close);});
 })();
 </script>
 </body>
