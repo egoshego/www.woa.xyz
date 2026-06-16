@@ -26,7 +26,7 @@
   h1.title .of{font-style:italic;font-weight:400;color:var(--plum);}
   .deck{font-family:var(--display);font-style:italic;font-weight:400;font-size:1.06rem;color:var(--muted);max-width:32rem;margin:.2rem auto 0;}
   .ver-row{margin-top:1.2rem;display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.06em;}
-  .chip{border:1px solid var(--rule);border-radius:999px;padding:.28rem .7rem;color:var(--muted);background:var(--card);}
+  .chip{border:1px solid var(--rule);border-radius:999px;padding:.28rem .7rem;color:var(--muted);background:var(--card);text-decoration:none;cursor:pointer;transition:border-color .15s,color .15s;}a.chip:hover{border-color:var(--ember);color:var(--ember);}
   .chip.ember{color:var(--ember);border-color:#e8c6b3;background:var(--ember-soft);}
   /* sections */
   section{margin:0 0 2.4rem;padding-left:1.3rem;border-left:2px solid var(--rule);}
@@ -74,8 +74,8 @@
     a{color:inherit;text-decoration:none;}
   }
 </style>
-</head>
-<body>
+<style>.home-btn{position:fixed;top:14px;left:14px;z-index:100;display:inline-flex;align-items:center;gap:.4rem;font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.04em;color:var(--ink);text-decoration:none;background:var(--card);border:1px solid var(--rule);border-radius:999px;padding:.42rem .8rem;box-shadow:0 2px 10px rgba(37,26,48,.08);transition:border-color .15s,color .15s}.home-btn:hover{border-color:var(--ember);color:var(--ember)}@media print{.home-btn{display:none}}</style></head>
+<body><a class="home-btn" href="https://analtena.world">← 主页</a>
 <div class="wrap">
 <div class="langbar"><a class="" href="WP_WoA_PL.html">PL</a><a class="" href="WP_WoA_EN.html">EN</a><a class="on" href="WP_WoA_ZH.html">中文</a></div>
 <header class="hero">
@@ -87,7 +87,7 @@
 <p class="eyebrow">白皮书 · v1.0</p>
 <h1 class="title">World <span class="of">of</span> Analtena</h1>
 <p class="deck">原生于 Telegram 的 RPG，奖励在 X1 区块链上链上结算。</p>
-<div class="ver-row"><span class="chip">Telegram Mini App</span><span class="chip">analtena.online</span><span class="chip ember">X1 区块链</span></div>
+<div class="ver-row"><a class="chip" href="https://t.me/AnaltenaRPGBot" target="_blank" rel="noopener">Telegram Mini App</a><a class="chip" href="https://analtena.online" target="_blank" rel="noopener">analtena.online</a><a class="chip ember" href="https://x1.xyz" target="_blank" rel="noopener">X1 区块链</a></div>
 </header>
 <section><span class="sec-num">01</span><h2>概述</h2>
 <p class="lede"><strong>World of Analtena</strong> 是一款由社区驱动的角色扮演游戏（RPG），同时以 <strong>Telegram Mini App</strong> 和<strong>浏览器游戏</strong>两种形式呈现——两者共用同一个账号。玩家锻造英雄、合力击败突袭 Boss、在竞技场中相互对决，并赢得在 <strong>X1 区块链</strong>上链上结算的奖励。</p>
