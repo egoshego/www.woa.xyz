@@ -710,5 +710,29 @@ html{overflow-x:hidden}img{max-width:100%}.hero-in{min-width:0}@media(max-width:
   document.addEventListener('woalang',upd);upd();
 })();
 </script>
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  function off(){return (nav?nav.getBoundingClientRect().height:0)+12;}
+  function go(id,smooth){
+    var el=id?document.getElementById(id):null;
+    var y=el?(el.getBoundingClientRect().top+window.pageYOffset-off()):0;
+    window.scrollTo({top:Math.max(0,y),behavior:smooth?'smooth':'auto'});
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="#"]');if(!a)return;
+    var h=a.getAttribute('href');if(!h||h.charAt(0)!=='#')return;
+    var id=h.slice(1);
+    if(id&&!document.getElementById(id))return;
+    e.preventDefault();go(id,true);
+    if(history.replaceState)history.replaceState(null,'',location.pathname+location.search);
+  },false);
+  if(location.hash){
+    var id0=location.hash.slice(1);
+    if(history.replaceState)history.replaceState(null,'',location.pathname+location.search);
+    if(document.getElementById(id0))setTimeout(function(){go(id0,false);},60);
+  }
+})();
+</script>
 </body>
 </html>
